@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6fb;
+}
+
+/* breadcrumb */
+
+.breadcrumb{
+background:linear-gradient(120deg,#4facfe,#00f2fe);
+color:white;
+text-align:center;
+padding:40px;
+font-size:28px;
+font-weight:bold;
+}
+
+/* layout */
+
+.contact-section{
+display:flex;
+padding:60px 8%;
+gap:40px;
+align-items:center;
+}
+
+/* left side */
+
+.contact-left{
+flex:1;
+}
+
+.contact-left img{
+width:100%;
+border-radius:12px;
+}
+
+.contact-text{
+margin-top:20px;
+font-size:18px;
+color:#555;
+}
+
+.call-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 30px;
+background:#ff6a00;
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+}
+
+/* form */
+
+.contact-form{
+flex:1;
+background:white;
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.contact-form h2{
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:14px;
+background:#4facfe;
+border:none;
+color:white;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+}
+
+button:hover{
+background:#00c6ff;
+}
+
+/* responsive */
+
+@media(max-width:900px){
+.contact-section{
+flex-direction:column;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="breadcrumb">
+Home / Contact
+</div>
+
+<section class="contact-section">
+
+<div class="contact-left">
+
+<img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b">
+
+<p class="contact-text">
+Need help? Contact our support team today.  
+We will reply as soon as possible.
+</p>
+
+<a href="tel:04442654265" class="call-btn"> 044 4265 4265</a>
+
+</div>
+
+
+<div class="contact-form">
+
+<h2>Send Message</h2>
+
+<form action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST" target="_blank" id="contactForm">
+
+<input type="text" id="name" name="entry.2005620554" placeholder="Your Name" required>
+
+<input type="text" id="phone" name="entry.1166974658" placeholder="Phone Number" required>
+
+<input type="email" name="entry.1045781291" placeholder="Email Address" required>
+
+<input type="text" name="entry.839337160" placeholder="Subject" required>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* letters only name */
+
+document.getElementById("name").addEventListener("input",function(){
+
+this.value=this.value.replace(/[^a-zA-Z ]/g,'');
+
+});
+
+/* numbers only phone */
+
+document.getElementById("phone").addEventListener("input",function(){
+
+this.value=this.value.replace(/[^0-9]/g,'').slice(0,10);
+
+});
+
+/* validation */
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+let phone=document.getElementById("phone").value;
+
+if(phone.length!=10){
+
+alert("Phone number must be 10 digits");
+
+e.preventDefault();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
